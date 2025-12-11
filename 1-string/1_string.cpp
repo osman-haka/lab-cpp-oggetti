@@ -3,98 +3,75 @@
 
 using namespace std;
 
-/***************************************************************************
- *                          Stringhe hands-on                             */
+
+void lunghezzaStringa(string stringa){
+
+int x = stringa.size();
+cout << "dimensione della stringa:" << x << endl;
+}
+
+
+void trovaCiao(string stringa){
+
+int y = stringa.find("ciao");
+
+    if(y == 0){
+     cout << "la parola ciao E' presente" << endl;
+    } else {
+    cout << "la parola ciao NON e' presente" << endl;
+    }
+
+}
+
+
+
+void sostituisciPizzaConPasta(string stringa){
+
+int z = stringa.find("pizza");
+if(z == 0){
+    string c =  stringa.replace(z, 5, "pasta");
+    cout << "la stringa dopo la modifica:" << c << endl;
+}
+
+}
+
+
+
+void stampaPrimaParola(string stringa){
+int j = stringa.find(" ");
+
+    cout << "la prima parola e': " << stringa.substr(0, j) << endl;
+
+
+}
+
+
+
+
+
+void aggiungiGiovanni(string frase){
+
+frase.insert(frase.size(), "Giovanni!");
+    cout << "Stringa dopo insert:" << frase << endl;
+
+}
 
 int main()
 {
-    /******************************************************************************
-     * La classe è 'string' (in realtà std::string) e rappresenta il tipo di dato    
-     * Dichiarazione di oggetti di tipo string                                    */
 
-    string str1 = "Questa è una stringa";
-    string str2; //stringa vuota
-    string str3;
-    cout << "Inserire valore stringa str3: ";
-    getline(cin, str3);
+    string str;
 
-    
-
-    /*******************************************************************************************
-     *      Una stringa è semplicemente un array di char "nascosto"
-     *      Utilizzare la classe stringa, e non l'array di char, ne semplifica l'utilizzo      */
-    
-    str3[0]; //modo per accedere a ogni carattere della stringa (come un array di char)
-    str3.at(0); //modo object oriented per accedere a ogni carattere della stringa (come un array di char)
-
-    cout << "Primo carattere (posizione 0) " << str3[0] << endl; // stampa del primo carattere stringa str1 ("Questa è una stringa")
-    cout << "Primo carattere (posizione 0) " <<  str3.at(0) << endl; // stampa del primo carattere stringa str1 ("Questa è una stringa")
-    cout << endl;
+    cout << "Inserire valore stringa: ";
+    getline(cin, str);
 
 
-
-    /********************************************************************************
-     * Ottenere informazioni sullo stato di un oggetto stringa attraverso funzioni */
-
-    // .size()
-    int x = str1.size();
-    cout << "La lunghezza della stringa è: " << x << endl;
-    cout << endl;
-    
-    // .length()
-    int y = str1.length();
-    cout << "La lunghezza della stringa è: " << y << endl;
-    cout << endl;
+    lunghezzaStringa(str);
+    trovaCiao(str);
+    sostituisciPizzaConPasta(str);
+    stampaPrimaParola(str);
+    aggiungiGiovanni(str);
 
 
-    // .find()
-    int z = str1.find("Questa");
-    cout << "Stringa trovata all'indice: " << z << endl;
-    cout << endl;
-
-    // .substr()
-    string s = str1.substr(0, 6);
-    cout << "Nuova stringa estratta (da indice 0 a indice 5): " << s << endl;
-    cout << endl;
-
-
-    // .empty()
-    if(str2.empty())
-        cout << "Stringa vuota" << endl;
-    else cout << "Stringa non vuota" << endl;
-    cout << endl;
-
-
-
-
-    /****************************************************************************
-     *      Manipolare lo stato di un oggetto stringa attraverso funzioni      */
-
-    // .replace()
-    string str4 = "Non mi piace informatica";
-    cout << "Stringa prima di replace: " << str4 << endl;
-
-    str4.replace(13, str4.length(), "matematica");
-    cout << "Stringa dopo replace: " << str4 << endl;
-    cout<< endl;
-
-    
-    // .insert()
-    string str5 = "Questo è un";
-    cout << "Stringa prima di insert: " << str5 << endl;
-
-    str5.insert(str5.length(), " testo");
-    cout << "Stringa dopo insert: " << str5 << endl;
-    cout<< endl;
-
-    
-    // .erase()
-    string str6 = "Non mi piace informatica";
-    cout << "Stringa prima di erase: " << str6 << endl;
-
-    str6.erase(0, 4);
-    cout << "Stringa dopo erase: " << str6 << endl;
-    cout<< endl;
 
     return 0;
 }
