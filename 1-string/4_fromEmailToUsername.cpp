@@ -23,14 +23,10 @@ string emails[N] = {
     };
 
 
-/*
-    TODO: la seguente funzione prende in input una string s minuscola e modifica il primo carattere rendendolo maiuscolo.
-    Esempio: "marco" -> "Marco", "rossi" -> "Rossi"
-
-    Hint: usare la funzione toupper(), vedi funzione minuscolo() in esercizio 3_userGenerator.cpp
-
-*/
 string primoCarattereMaiuscolo(string &s) {
+
+s[0] = toupper(s[0]);
+return s;
 
 }
 
@@ -43,16 +39,18 @@ int main() {
 
     // ciclo su tutte le email
     for (int i = 0; i < N; i++) {
-        string email = emails[i]; //email corrente
+        string email = emails[i]; 
 
-        //TODO: rimuovere la parte dopo la chiocciola
-
-        // TODO: spezzare la stringa in due parti diverse: nome e cognome (utilizzare il punto come criterio per separare)
-
-        // TODO: rendere maiuscolo il primo carattere di nome e cognome (usare la funzione primoCarattereMaiuscolo)
-
-        // TODO: inserire in nomiCognomi[i] l'insieme delle due stringhe (concatenarle con l'operatore +)
+        int x = email.find(".");
+        int y = email.find("@");
         
+        string nome = email.substr(0, x);
+        string cognome = email.substr(x + 1, y - 1 - x);
+        
+        primoCarattereMaiuscolo(nome);
+        primoCarattereMaiuscolo(cognome);
+
+        nomiCognomi[i] = nome + " " + cognome;
     }
 
     // stampa il risultato
